@@ -1,0 +1,72 @@
+<%
+  const eventsData = [
+    {
+      extraClasses: [],
+      title: "Международная выставка «ДОБРЫЙ МИР-2022»",
+      date: "06.08 - 30.08",
+      image: true,
+      fullHeight: true,
+      fullHeightImg: true,
+      imgPath: "../images/event-card-1.png",
+      timer: true,
+      timerConfig: {
+        "year": 2022,
+        "month": 4,
+        "date": 1
+      }
+    },
+    {
+      extraClasses: [],
+      title: "Более 800 детёнышей ларги появились на свет в южном Приморье",
+      date: "06.08 - 30.08",
+      image: true,
+      fullHeight: true,
+      imgPath: "../images/event-card-2.png"
+    },
+    {
+      extraClasses: [],
+      title: "Новую популяцию синих китов обнаружили в Индийском океане",
+      date: "06.08 - 30.08",
+    },
+    {
+      extraClasses: [],
+      title: "Более 800 детёнышей ларги появились на свет в южном Приморье",
+      date: "06.08 - 30.08",
+      image: true,
+      fullHeight: true,
+      imgPath: "../images/event-card-3.png"
+    },
+    {
+      extraClasses: [],
+      title: "Новую популяцию синих китов обнаружили в Индийском океане",
+      date: "06.08 - 30.08",
+      dark: true
+    }
+  ]
+
+%>
+
+<section class="event-section">
+  <div class="wrap">
+    <h2>События</h2>
+
+    <div class="events">
+      <div class="events__list">
+        <% eventsData.forEach((event) => { %>
+          <%- require("../components/event-card/template.ejs")(event) %>
+        <%})  %>
+      </div>
+    </div>
+
+    <div class="event-section__button">
+      <%- require("../components/button/template.ejs")({
+        extraClasses: [
+          "button--transparent"
+        ],
+        label: "В РАЗДЕЛ",
+        icon: "arrow-right"
+      }) %>
+    </div>
+</div>
+
+</section>

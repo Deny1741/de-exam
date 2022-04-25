@@ -1,0 +1,63 @@
+@import "../../styles/mixins.pcss";
+
+
+.checkbox {
+  --dark: #D9D9D9;
+  --checkboxSize: 20px;
+  --iconSize: 16px;
+
+  .input-checkbox {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  input:checked + label > svg {
+    height: 24px;
+    animation: draw-checkbox ease-in-out 0.2s forwards;
+  }
+
+  label:active::before {
+    background-color: var(--dark);
+  }
+
+  label {
+    line-height: 0px;
+    cursor: pointer;
+    position: relative;
+    &:before {
+      content: "";
+      height: var(--checkboxSize);
+      width:  var(--checkboxSize);
+      margin-right: 10px;
+      float: left;
+      border: 1px solid var(--dark);
+      transition: 0.15s all ease-out;
+    }
+  }
+  svg {
+    height: 0;
+    width: var(--iconSize);
+    position: absolute;
+    left: -28px;
+    top: -2px;
+    stroke-dasharray: 33;
+
+  }
+}
+
+
+
+@keyframes draw-checkbox {
+  0% {
+    stroke-dashoffset: 33;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

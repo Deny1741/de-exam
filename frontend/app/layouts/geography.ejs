@@ -1,0 +1,27 @@
+<section class="geography">
+	<div class="geography__right">
+		<div class="geography__content">
+			<h2 class="geography__title">География присутствия</h2>
+			<p class="geography__text geography__text--big">>100</p>
+			<p class="geography__text">хороших мест есть
+				в России</p>
+			<p class="geography_text-2">Когда речь идет о качестве изоляции, мы понимаем ваши потребности, что подтверждено отзывами более 400 постоянных клиентов по всему миру. </p>
+
+			<div class="geography__button">
+				<%- require("../components/button/template.ejs")({
+					extraAttrs: [],
+					label: "О КОМПАНИИ",
+					icon: "arrow-right"
+
+				}) %>
+			</div>
+		</div>
+
+
+	</div>
+	<div class="geography__left">
+		<%- require("../components/map/template.ejs")({
+		}) %>
+	</div>
+
+</section>

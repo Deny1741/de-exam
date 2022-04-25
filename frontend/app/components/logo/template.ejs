@@ -1,0 +1,21 @@
+<%
+	const cfg = { ...require("./data.json"), ...arguments?.[0] }
+	const {
+    extraClasses,
+		extraAttrs,
+		type,
+		href,
+		altSrc,
+		disabled
+	} = cfg
+%>
+
+<%
+const classes = `logo ${extraClasses.join(" ")}`.trim()
+const attrs = extraAttrs.join(" ")
+
+src = altSrc ? "../../images/logo-alt.png" : "../../images/logo.png";
+
+%>
+
+<a href="<%- href %>"><img src="<%- src %>" alt="лого" loading="lazy"></a>

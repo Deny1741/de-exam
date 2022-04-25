@@ -1,0 +1,32 @@
+<%
+	const cfg = { ...require("./data.json"), ...arguments?.[0] }
+	const {
+    extraClasses,
+		extraAttrs,
+		title,
+		icons,
+	} = cfg
+%>
+
+<%
+const classes = `social ${extraClasses.join(" ")}`.trim()
+const attrs = extraAttrs.join(" ")
+%>
+
+<div class="<%- classes %>">
+	<div class="social__title">
+		<%- title %>
+	</div>
+	<div class="social__icon-group" data-js-social>
+		<% icons.forEach((icon) => {	 %>
+			<div>
+				<a href="<%- icon.link %>" target="_blank" data-js-name="<%- icon.name %>">
+					<svg class="social__icon i-icon">
+						<use href="#icon-<%- icon.name %>"></use>
+					</svg>
+				</a>
+			</div>
+		<% }) %>
+	</div>
+
+</div>

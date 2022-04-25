@@ -1,0 +1,10 @@
+{
+  "extraClasses": [],
+  "extraAttrs": [],
+  "id": "checkbox",
+  "label": "",
+  "icon": "checkmark",
+  "checked": false,
+  "disabled": false,
+  "required": false
+}

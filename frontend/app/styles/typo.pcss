@@ -1,0 +1,31 @@
+@import "mixins.pcss";
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	--marginBottom: 40px;
+
+	display: block;
+	font-weight: 700;
+
+	&:not(:last-child) {
+		margin-bottom: var(--marginBottom);
+	}
+}
+
+h1, .h1 {
+	@mixin fluid-text 56, 28;
+}
+
+button {
+	* {
+		pointer-events: none;
+	}
+}
+
+h2, .h2 {
+	@mixin fluid-text 42, 24;
+}

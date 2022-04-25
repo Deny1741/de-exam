@@ -1,0 +1,74 @@
+@import "../media.pcss";
+
+
+.modal {
+  display: none;
+  max-width: 1400px;
+  width: 80%;
+  padding: 80px !important;
+
+  .carousel__button {
+    position: absolute;
+    top: 20px !important;
+    right: 20px !important;
+
+    svg {
+      color: #003882;
+    }
+  }
+}
+
+.form {
+  transition: 1s;
+
+  &__header {
+    margin-bottom: 25px;
+  }
+
+  &__body {
+    display: flex;
+    gap: 20px;
+
+  }
+
+  &__side {
+    width: 50%;
+  }
+
+  &__title {
+    font-size: 42px;
+  }
+
+  &__input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__input textarea {
+    height: 200px;
+
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 40px;
+  }
+
+  &__button {
+    align-self: flex-end;
+  }
+}
+
+.success {
+  text-align: center;
+}
+
+
+
+
+
+
+

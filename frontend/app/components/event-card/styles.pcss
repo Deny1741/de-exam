@@ -1,0 +1,114 @@
+@import "../../styles/mixins.pcss";
+
+.event-card-wrap {
+  height: 250px;
+
+  &--full-height {
+    grid-row: span 2;
+    height: 500px;
+  }
+}
+
+.event-card {
+  --height: 250px;
+  --heightFull: 500px;
+  --padding: 30px;
+  --bgLight: var(--c-light);
+  --bgDark: var(--c-main);
+  --textColor: var(--c-dark);
+  --textColorLight: var(--c-light);
+  --textDateColor: var(--c-gray);
+  --lineHeight: 1.5;
+  --fontWeight: 700;
+  --fontSizeFull: 22px;
+
+  position: relative;
+  height: 100%;
+
+
+  &__body {
+    min-height: var(--height);
+    padding: var(--padding);
+    background: var(--bgLight);
+  }
+
+  &__title {
+    margin-top: 22px;
+  }
+
+  &__date {
+    color: var(--textDateColor);
+  }
+
+  &__image {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+
+    &--full-height {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      & ~ .event-card__body {
+        position: relative;
+        z-index: 1;
+        color: var(--textColorLight);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 100%;
+        background: transparent;
+
+        .event-card__date {
+          color: var(--textColorLight);
+          line-height: var(--lineHeight);
+          font-weight: var(--fontWeight);
+        }
+
+        .event-card__title {
+          font-size: var(--fontSizeFull);
+          font-weight: var(--fontWeight);
+          line-height: var(--lineHeight);
+        }
+      }
+
+    }
+  }
+
+  &--dark & {
+    &__body {
+      background: var(--bgDark);
+    }
+
+    &__title {
+      color: var(--textColorLight);
+    }
+  }
+}
+
+.timer {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background: var(--bgDark);
+  color: var(--textColorLight);
+  padding: 20px 30px;
+
+  &__title {
+    font-size: 13px;
+    line-height: var(--lineHeight);
+    text-transform: uppercase;
+    width: max-content;
+  }
+
+  &__text {
+    font-size: 18px;
+    font-weight: var(--fontWeight);
+    line-height: var(--lineHeight);
+  }
+}

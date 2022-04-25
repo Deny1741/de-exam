@@ -1,0 +1,33 @@
+<%
+const cfg = { ...require("./data.json"), ...arguments?.[0] }
+const {
+	extraClasses,
+	extraAttrs,
+	id,
+	label,
+	icon,
+	name,
+	required,
+	disabled,
+	checked
+
+} = cfg
+
+const checkedAttr = checked ? "checked" : "";
+const requiredAttr = required ? "required" : "";
+const disabledAttr = disabled ? "disabled" : "";
+const attrs = `${checkedAttr} ${requiredAttr} ${disabledAttr} ${extraAttrs.join(" ")}`;
+%>
+
+
+
+<div class="checkbox">
+	<input id="<%- id %>" type="checkbox" class="input-checkbox" name="<%- name %>" <%- attrs %> />
+	<label for="<%- id %>">
+		<svg>
+			<use href="#icon-<%- icon %>"></use>
+		</svg>
+		<%- label %>
+	</label>
+</div>
+

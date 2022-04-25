@@ -1,0 +1,29 @@
+@import "../../styles/mixins.pcss";
+
+.lang-switcher {
+    position: relative;
+    width: 45px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+
+    & select {
+        border: none;
+        width: 100%;
+        appearance: none;
+        background: none;
+    }
+
+    &__icon {
+        position: absolute;
+        top: 40%;
+        right: 5px;
+        width: 7px;
+        height: 6px;
+        pointer-events: none;
+    }
+}
+
+option {
+    color: black;
+}

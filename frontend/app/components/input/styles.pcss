@@ -1,0 +1,100 @@
+@import "../../styles/mixins.pcss";
+
+.input {
+    --labelColor: var(--c-gray);
+    --textColor: #A9A9A9;
+    --textColorDark: var(--c-dark);
+    --bgColor: var(--c-gray-2);
+
+    position: relative;
+    transition: 0.3s;
+
+    &__label {
+        display: none;
+        color: var(--labelColor);
+        font-size: 12px;
+        font-weight: 700;
+        background: var(--bgColor);
+        position: absolute;
+        top: 11px;
+        left: 20px;
+    }
+
+    &__text {
+        color: var(--textColor);
+        font-weight: 600;
+        font-size: 14px;
+        width: 100%;
+        background: var(--bgColor);
+        border: none;
+        padding: 22px 0px 22px 20px;
+    }
+
+    &__text:focus {
+        font-size: 14px;
+        padding: 33px 0px 11px 20px;
+        outline:none;
+    }
+
+    &__text:not(:placeholder-shown) {
+        display: block;
+        padding: 33px 0px 11px 20px;
+    }
+
+    &__text:not(:placeholder-shown) + &__label {
+        display: block;
+    }
+
+    &__text:focus::placeholder {
+        opacity: 0;
+    }
+
+    &__text:focus + &__label {
+        display: block;
+    }
+
+    &__text::placeholder {
+        color: var(--textColorDark);
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+
+.textarea {
+    --labelColor: var(--c-gray);
+    --textColor: #A9A9A9;
+    --textColorDark: var(--c-dark);
+    --bgColor: var(--c-gray-2);
+
+    &__text {
+        font: var(--base-font-weight) var(--base-font-size)/var(--base-line-height) var(--base-font-family);
+        color: var(--textColor);
+        font-weight: 600;
+        font-size: 14px;
+        width: 100%;
+        background: var(--bgColor);
+        border: none;
+        padding: 22px 0px 22px 20px;
+    }
+
+    &__text:focus {
+        outline:none;
+    }
+
+    &__text::placeholder {
+        color: var(--textColorDark);
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    &__text:focus::placeholder {
+        opacity: 0;
+    }
+}
+
+.is-invalid {
+    border: 1px solid #d02424;
+}
+
+
+

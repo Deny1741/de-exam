@@ -1,0 +1,93 @@
+<div
+  class="modal modal--feedback"
+  id="modal-feedback"
+  data-js-modal
+>
+
+  <form action="https://enajo7xj57h7m.x.pipedream.net" method="POST" novalidate autocomplete="off" data-js-form id="demo-form">
+    <header class="form__header">
+      <div class="form__title h3">
+        Обратная связь
+      </div>
+      <p class="form__text">Оставьте Ваши данные, наш специалист свяжется с Вами в ближайшее время.</p>
+    </header>
+    <div class="form__body">
+      <div class="form__side">
+        <div class="form__input">
+          <%- require("../components/input/template.ejs")({
+            extraClasses: [],
+            extraAttrs: ["data-js-input-required=''"],
+            type: "text",
+            name: "fio",
+            id: "fio",
+            placeholder: "ФИО*",
+            label: "ФИО"
+          }) %>
+        </div>
+
+        <div class="form__input">
+          <%- require("../components/input/template.ejs")({
+            extraClasses: [],
+            extraAttrs: ["data-js-input-required='phone'"],
+            type: "number",
+            name: "phone",
+            id: "phone",
+            placeholder: "ТЕЛЕФОН*",
+            label: "ТЕЛЕФОН"
+          }) %>
+        </div>
+
+        <div class="form__input">
+          <%- require("../components/input/template.ejs")({
+            extraClasses: [],
+            extraAttrs: ["data-js-input-required='email'"],
+            type: "text",
+            name: "email",
+            id: "email",
+            placeholder: "ЭЛЕКТРОННАЯ ПОЧТА*",
+            label: "ЭЛЕКТРОННАЯ ПОЧТА"
+          }) %>
+        </div>
+      </div>
+
+      <div class="form__side">
+
+        <div class="form__input">
+          <%- require("../components/input/template.ejs")({
+            extraClasses: [],
+            extraAttrs: ["data-js-input-required=''"],
+            textarea: true,
+            name: "message",
+            id: "message",
+            placeholder: "СООБЩЕНИЕ",
+          }) %>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form__actions">
+      <div id="captcha">
+        <div class="g-recaptcha" data-sitekey="6LerW5MfAAAAAKz1E5xWvlMLQ_-edmBcY7CrqKwW"></div>
+      </div>
+      <div class="form__checkbox">
+        <%- require("../components/checkbox/template.ejs")({
+          extraAttrs: ["data-js-input-required='checkbox'"],
+          label: "Согласен (согласна) с политикой конфиденциальности",
+          id: "modal-checkbox",
+          name: "privacy-policy"
+        }) %>
+      </div>
+      <div class="form__button">
+        <%- require("../components/button/template.ejs")({
+          extraClasses: ["g-recaptcha"],
+          type: "submit",
+          label: "Отправить"
+        })%>
+      </div>
+    </div>
+  </form>
+
+  <h3 class="form__title h3 success is-hidden" data-js-succes-title>Форма успешно отправлена</h3>
+
+</div>

@@ -1,0 +1,93 @@
+<%
+const cfg = { ...require("./data.json"), ...arguments?.[0] }
+const {
+	extraClasses,
+	extraAttrs
+} = cfg
+%>
+
+<%
+const classes = `header ${extraClasses.join(" ")}`.trim()
+const attrs = extraAttrs.join(" ")
+%>
+
+<header
+	class="<%= classes %>"
+	<%- extraAttrs %>
+
+>
+	<div class="header__logo">
+		<%- require("../logo/template.ejs")({}) %>
+	</div>
+
+	<div class="header__group" id="header-group">
+			<div class="header__nav">
+				<nav class="nav">
+					<ul>
+						<li><a href="/">О компании</a></li>
+						<li><a href="/">Продукция</a></li>
+						<li><a href="/">Исследования</a></li>
+						<li><a href="/">События</a></li>
+						<li><a href="/">Контакты</a></li>
+					</ul>
+				</nav>
+			</div>
+
+			<div class="header__button">
+
+				<%- require("../button/template.ejs")({
+					extraAttrs: [
+						`data-js-modal-open-button='{"src": "#modal-feedback"}'`
+					],
+					label: "ОБРАТНАЯ СВЯЗЬ",
+
+				}) %>
+			</div>
+
+
+
+			<div class="header__lang-switcher">
+				<%- require("../lang-switcher/template.ejs")({
+					extraClasses: [""],
+					icon: "triangle"
+				}) %>
+			</div>
+
+			<div class="header__search-icon">
+				<%- require("../button/template.ejs")({
+					extraClasses: ["button--transparent"],
+					extraAttrs: [
+						`data-js-open-search='{"src": "#search"}'`
+					],
+					icon: "search",
+					label: ""
+				}) %>
+			</div>
+
+			<div class="header__search">
+				<%- require("../input/template.ejs")({
+					extraClasses: ["is-hidden"],
+					type: "text",
+					name: "search",
+					id: "search",
+					placeholder: "ПОИСК",
+					label: "ПОИСК"
+				}) %>
+			</div>
+
+	</div>
+
+	<div class="header__hamburger">
+		<%- require("../button/template.ejs")({
+			extraClasses: ["button--transparent"],
+			extraAttrs: [
+				`data-js-burger='{"src": "#header-group"}'`
+			],
+			icon: "hamburger",
+			label: ""
+		}) %>
+	</div>
+
+
+
+</header>

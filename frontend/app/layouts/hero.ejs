@@ -1,0 +1,106 @@
+<%
+	const sliderButton = {
+		extraAttrs: [],
+		label: "В КАТАЛОГ",
+		icon: "arrow-right"
+	}
+
+	const slidersData = [
+		{
+			imgPath: "../images/hero/1.png",
+			title: "Проект «Люди&nbsp;—&nbsp;природе»",
+			text: "Проект &laquo;Люди&nbsp;&mdash; природе&raquo; стартовал весной 2019 года при поддержке Европейского Союза в&nbsp;России и&nbsp;направлен на&nbsp;вовлечение общественности в&nbsp;охрану окружающей среды в&nbsp;Кавказском, <nobr>Алтае-Саянском</nobr> и&nbsp;Амурском экорегионах.",
+		},
+		{
+			imgPath: "../images/hero/2.png",
+			title: "Проект!",
+			text: "Проект!!!",
+		},
+		{
+			imgPath: "../images/hero/3.png",
+			title: "Проект!!!",
+			text: "Проект!!!!",
+			source: "../images/hero/3-2.jpg"
+		}
+	]
+
+	const sliderFooterData = [
+		{
+			textBig: "60",
+			text: "лет на рынке"
+		},
+		{
+			textBig: "5",
+			text: "новых мест"
+		},
+		{
+			textBig: "600",
+			text: "миллионов выделено"
+		},
+		{
+			textBig: "100",
+			text: "стран присутствия"
+		},
+		{
+			textBig: "478",
+			text: "добрых дел было сделано в 2021 году"
+		}
+	]
+%>
+
+<section class="slider">
+	<div class="swiper slider-hero">
+		<div class="swiper-wrapper">
+			<% slidersData.forEach(({ imgPath, title, text, source }, i) => { %>
+				<div class="swiper-slide">
+
+					<% if (i < slidersData.length - 1) {%>
+						<div class="counter counter--1"></div>
+					<% } %>
+						<div class="counter counter--2"></div>
+						<picture>
+							<% if (source) {%>
+								<source srcset="<%- source %>" media="(max-width: 600px)">
+							<% } %>
+							<img src="<%- imgPath %>" alt="" loading="lazy">
+						</picture>
+
+					<div class="swiper-slide__content">
+						<h1 class="swiper-slide__title"><%- title %></h1>
+						<p class="swiper-slide__text"><%- text %></p>
+						<div class="swiper-slide__button">
+							<%- require("../components/button/template.ejs")( sliderButton ) %>
+						</div>
+					</div>
+				</div>
+			<% }) %>
+		</div>
+
+		<div class="button-group">
+			<div class="swiper-button-prev">
+				<svg class="swiper-button-prev__icon i-icon">
+					<use href="#icon-arrow-left-slider"></use>
+				</svg>
+			</div>
+			<div class="swiper-button-next">
+				<svg class="swiper-button-prev__icon i-icon">
+					<use href="#icon-arrow-right-slider"></use>
+				</svg>
+			</div>
+		</div>
+	</div>
+
+	<div class="slider-footer">
+		<div class="slider-footer__content">
+			<ul>
+				<% sliderFooterData.forEach(({ textBig, text }) => { %>
+					<li>
+						<span class="slider-footer__text-big"><%- textBig %></span>
+						<span class="slider-footer__text"><%- text %></span>
+					</li>
+				<% }) %>
+			</ul>
+		</div>
+	</div>
+</section>
+

@@ -1,0 +1,80 @@
+@import "../media.pcss";
+@import "../../styles/mixins.pcss";
+
+.geography {
+    --textColor: var(--c-light);
+
+    background: var(--textColor);
+    display: grid;
+    grid-template-columns: 535px 1fr;
+
+    &__right {
+        max-width: 535px;
+        height: calc(100vh - 150px);
+        display: flex;
+        align-items: center;
+    }
+
+    &__content {
+        margin-left: 110px;
+        margin-right: 60px;
+    }
+
+    &__title {
+        font-size: 42px;
+        font-weight: 700;
+        line-height: 1.25;
+    }
+
+    &__text {
+        color: #003882;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1.5;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    &__text--big {
+        @mixin fluid-text 64, 30;
+    }
+
+    &__text-2 {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+    }
+
+    &__button {
+        margin-top: 50px;
+
+        .i-icon {
+            * {
+                fill: var(--textColor);
+                stroke: var(--textColor);
+            }
+        }
+    }
+
+}
+
+@media (--tablet) {
+
+    .geography {
+        grid-template-columns: 1fr;
+        justify-items: center;
+
+        &__content {
+            margin: 40px
+        }
+
+        &__right {
+            height: 600px;
+        }
+
+        &__left {
+            height: 500px;
+            width: 100%;
+        }
+    }
+}

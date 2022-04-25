@@ -1,0 +1,123 @@
+<%
+const cfg = { ...require("./data.json"), ...arguments?.[0] }
+const {
+	extraClasses,
+	extraAttrs
+} = cfg
+%>
+
+<%
+const classes = `footer ${extraClasses.join(" ")}`.trim()
+const attrs = extraAttrs.join(" ")
+%>
+
+<footer
+	class="<%= classes %>"
+	<%- extraAttrs %>
+>
+	<div class="footer__body">
+		<div class="newsletter">
+			<div class="newsletter__header">
+				<h2 class="newsletter__title">Новостная рассылка</h2>
+				<span class="newsletter__text">Будьте в курсе самых свежих новостей, новых решений и реализованных проектов</span>
+			</div>
+
+			<div class="newsletter__form">
+				<div class="newsletter__input">
+					<%- require("../input/template.ejs")({
+						extraClasses: [""],
+						type: "email",
+						name: "newsEmail",
+						id: "newsEmail",
+						placeholder: "Введите ваш e-mail",
+						label: "Введите ваш e-mail"
+					}) %>
+				</div>
+
+				<div class="newsletter__button">
+					<%- require("../button/template.ejs")({
+						extraClasses: ["button--transparent"],
+						label: "ПОДПИСАТЬСЯ НА НОВОСТНУЮ РАССЫЛКУ",
+						icon: "right",
+						positionAlt: true,
+						type: "submit"
+					}) %>
+				</div>
+			</div>
+
+			<div class="newsletter__checkbox">
+				<%- require("../checkbox/template.ejs")({
+					label: "Согласен (согласна) с политикой конфиденциальности",
+				}) %>
+			</div>
+		</div>
+
+		<div class="footer__content">
+			<div class="footer__item footer__logo">
+				<%- require("../logo/template.ejs")({
+					altSrc: true
+				}) %>
+
+			</div>
+			<div class="footer__item">
+				<ul>
+					<li class="footer__item-title"><a href="">ПРОДУКЦИЯ</a></li>
+					<li><a href="">Лодки</a></li>
+					<li><a href="">Катеры</a></li>
+					<li><a href="">Плоты</a></li>
+					<li><a href="">Парусники</a></li>
+				</ul>
+			</div>
+			<div class="footer__item">
+				<ul>
+					<li class="footer__item-title"><a href="">О КОМПАНИИ</a></li>
+					<li class="footer__item-title"><a href="">КАРЬЕРА</a></li>
+					<li class="footer__item-title"><a href="">ИССЛЕДОВАНИЯ</a></li>
+					<li class="footer__item-title"><a href="">СОБЫТИЯ</a></li>
+					<li class="footer__item-title"><a href="">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</a></li>
+				</ul>
+			</div>
+			<div class="footer__item">
+				<ul>
+					<li class="footer__item-title"><a href="">КОНТАКТЫ</a></li>
+					<li>
+						<p>Телефоны:</p>
+						<p><span class="color-light">+7 (000) 000-00-00</span> (для звонков по России)</p>
+						<p><span class="color-light">+7 (000) 000-00-00</span></p>
+					</li>
+					<li>
+						<p>E-mail:</p>
+						<p><span class="color-light text-underline">company@mail.ru</span> </p>
+					</li>
+				</ul>
+			</div>
+			<div class="footer__item">
+				<%- require("../social/template.ejs") ({
+					extraClasses: [""],
+					title: "Поделиться страницей с соц. сетях:",
+					icons: [
+						{
+							name: "vk",
+						},
+						{
+							name: "facebook",
+						},
+						{
+							name: "linkedin",
+						}
+					]
+				})
+				%>
+			</div>
+		</div>
+
+		<div class="footer__copyright">
+			<div class="footer__copyright-body">
+				<span class="footer__copyright-text-1">©&nbsp;2006&#8209;2022&nbsp;COMPANY</span>
+				<span class="footer__copyright-text-2">Все права защищены. Копирование информации сайта допустимо только с&nbsp;письменного разрешения администрации.
+Правила обработки персональных данных и&nbsp;хранении данных cookie.</span>
+			</div>
+		</div>
+	</div>
+
+</footer>

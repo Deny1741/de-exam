@@ -1,0 +1,55 @@
+<%
+	const cfg = { ...require("./data.json"), ...arguments?.[0] }
+	const {
+    extraClasses,
+		extraAttrs,
+		type,
+		id,
+		name,
+		placeholder,
+		required,
+		disabled,
+		label,
+		textarea
+	} = cfg
+%>
+
+<%
+
+const typeInput = textarea ? "textarea" : "input";
+const classes = `${typeInput} ${extraClasses.join(" ")}`.trim()
+const disabledAttr = disabled ? "disabled" : ""
+const attrs = `${disabledAttr} ${extraAttrs.join(" ")}`
+
+%>
+
+
+<% if (textarea) { %>
+	<div class="<%- classes %>">
+		<textarea class="textarea__text"
+					 name="<%- name %>"
+					 id="<%- id %>"
+					 placeholder="<%- placeholder %>"
+					 <%- attrs %>
+		></textarea>
+	</div>
+
+<%	} else { %>
+	<div class="<%- classes %>">
+		<input class="input__text"
+					 type="<%- type %>"
+					 name="<%- name %>"
+					 id="<%- id %>"
+					 placeholder="<%- placeholder %>"
+					 <%- attrs %>
+		>
+		<label
+			class="input__label"
+			for="<%- id %>"
+		>
+			<%- label %>
+		</label>
+	</div>
+<%	} %>
+
+

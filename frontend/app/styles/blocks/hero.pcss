@@ -1,0 +1,232 @@
+@import "../media.pcss";
+@import "../../styles/mixins.pcss";
+
+
+.slider {
+    --textColor: var(--c-light);
+    --zIndex: 100;
+    --fontWeight: 700;
+    --bgFooterSlider: rgba(0, 56, 130, 0.8);
+
+
+    position: relative;
+    counter-reset: section 1;
+
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 10%;
+        overflow: hidden;
+
+
+
+        &__button {
+            margin-top: 50px;
+
+            .i-icon {
+                * {
+                    fill: var(--textColor);
+                    stroke: var(--textColor);
+                }
+            }
+        }
+
+        &__content {
+            position: relative;
+            max-width: 750px;
+            margin-bottom: 200px;
+
+            @media (--tablet-s) {
+                margin-top: 100px;
+                margin-bottom: 0;
+            }
+        }
+
+        &__title {
+            color: var(--textColor);
+            @mixin fluid-text 56, 28;
+        }
+
+        &__text {
+            color: var(--textColor);
+            @mixin fluid-text 16, 12;
+        }
+
+    }
+
+    .swiper {
+        position: relative;
+        counter-reset: section-2;
+    }
+
+    .swiper-slide {
+        /* height: calc(100vw / 2.2); */
+       /* height: 870px; */
+        height: calc(100vh - 150px);
+        min-height: 370px;
+
+    }
+
+    .swiper-slide img {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .button-group {
+        & > div {
+            color: var(--textColor);
+            width: 140px;
+            height: 26px;
+        }
+
+        & > div::after {
+            content: "";
+        }
+
+        .i-icon {
+            width: 100%;
+            height: 100%;
+        }
+
+        * {
+            fill: transparent;
+            stroke: var(--textColor);
+        }
+
+        *:hover {
+            fill: var(--textColor);
+        }
+
+        @media (--tablet-s) {
+            display: none;
+        }
+    }
+
+    .swiper-button-prev {
+        top: 62%;
+        left: calc(100% - 250px);
+    }
+
+    .swiper-button-next {
+        top: 70%;
+        right: 110px
+    }
+
+    .slider-footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: fit-content;
+        min-height: 20vh;
+        background: var(--bgFooterSlider);
+        z-index: var(--zIndex);
+        display: flex;
+        align-items: center;
+
+        @media (--tablet-s) {
+            position: relative;
+            background: #003882;
+
+        }
+
+        &__content {
+            color: var(--textColor);
+            font-weight: 600;
+            font-size: 15px;
+            width: 100%;
+
+
+        }
+
+        & ul {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            padding-inline: 15px;
+
+            @media (--mobile) {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+        }
+
+        & li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @media (--tablet-s) {
+                width: 50%;
+            }
+
+            @media (--mobile) {
+                justify-content: flex-start;
+                width: 100%;
+                border-bottom: 1px solid white;
+            }
+        }
+
+        &__text {
+            @mixin fluid-text 15, 12;
+            margin-left: 16px;
+        }
+
+        &__text-big {
+            @mixin fluid-text 64, 30;
+        }
+
+    }
+
+    .counter {
+        position: absolute;
+        top: 20%;
+        right: 20px;
+        font-weight: var(--fontWeight);
+        z-index: var(--zIndex);
+        color: transparent;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: var(--textColor);
+        @mixin fluid-text 180, 80;
+
+        &--1::after {
+            counter-increment: section;
+            content: counter(section, decimal-leading-zero);
+        }
+
+        &--2 {
+            left: -2.5%;
+        }
+
+        &--2::after {
+            counter-increment: section-2;
+            content: counter(section-2, decimal-leading-zero);
+        }
+    }
+}
+
+@media (--tablet) {
+
+    .slider {
+        .counter {
+            top: 5%;
+
+            &--2 {
+                left: -3.5%;
+            }
+        }
+
+
+    }
+
+}
